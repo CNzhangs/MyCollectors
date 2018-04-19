@@ -3,11 +3,22 @@ package com.zhangs.collector.response;
 public class Result<T> {
     public Result(int code) {
         this.code = code;
-        this.msg=generateMsg(code);
+        this.msg = generateMsg(code);
+    }
+
+    public static Result fail(String msg) {
+        return new Result(ResultCode.REQUEST_PARAMS_ERROR,msg);
+    }
+
+    public static <T> Result success(T t) {
+        Result<T> result = new Result<>(200);
+        result.setData(t);
+        result.setMsg("ok");
+        return result;
     }
 
     private String generateMsg(int code) {
-        switch (code){
+        switch (code) {
             case ResultCode.WEAK_NET_WORK:
                 return "network error";
             case ResultCode.REQUEST_PARAMS_ERROR:
@@ -45,7 +56,7 @@ public class Result<T> {
         this.data = data;
     }
 
-    private  int code;
+    private int code;
     private String msg;
     private T data;
 

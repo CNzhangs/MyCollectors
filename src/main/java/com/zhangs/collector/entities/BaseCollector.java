@@ -1,9 +1,12 @@
 package com.zhangs.collector.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
+
 public abstract class BaseCollector extends BaseEntity {
     Long authorId;
     String title;
