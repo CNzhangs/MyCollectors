@@ -8,11 +8,16 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     @Override
     public void register(User user) {
-        LogUtils.e("start to register users:" + user);
+
     }
 
     @Override
     public void delete(User user) {
         LogUtils.e("start to delete users:" + user);
+    }
+
+    @Override
+    public void update(User user) {
+
     }
 }

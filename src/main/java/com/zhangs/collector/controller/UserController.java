@@ -4,7 +4,7 @@ import com.zhangs.collector.common.LogUtils;
 import com.zhangs.collector.entities.User;
 import com.zhangs.collector.repository.UserRepo;
 import com.zhangs.collector.response.Result;
-import com.zhangs.collector.service.UserService;
+import com.zhangs.collector.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController extends BaseController<User, UserRepo> {
     @Autowired
-    UserService userService;
+    UserServiceImpl userService;
 
     @PostMapping("/{id}")
     public Result update(@PathVariable("id") Long id, @Valid @RequestBody User user, BindingResult bindingResult) {
@@ -23,6 +23,7 @@ public class UserController extends BaseController<User, UserRepo> {
             return Result.fail(bindingResult.getFieldError().getDefaultMessage());
         }
         user.setId(id);
+        userService.update(user);
         return Result.success(repo.save(user));
     }
 
