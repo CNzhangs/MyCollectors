@@ -16,7 +16,11 @@ public class Result<T> {
         result.setMsg("ok");
         return result;
     }
-
+    public static <T> Result success() {
+        Result<T> result = new Result<>(200);
+        result.setMsg("ok");
+        return result;
+    }
     private String generateMsg(int code) {
         switch (code) {
             case ResultCode.WEAK_NET_WORK:
@@ -67,5 +71,9 @@ public class Result<T> {
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
+    }
+
+    public boolean isSuccess(){
+        return code==200;
     }
 }
