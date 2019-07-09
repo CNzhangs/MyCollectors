@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 public class BaseController<T,REPO> {
     @Autowired
-    REPO repo;
+    REPO  repo;
     @ExceptionHandler(Exception.class)
     public Result handleException(Exception e) {
         e.printStackTrace();

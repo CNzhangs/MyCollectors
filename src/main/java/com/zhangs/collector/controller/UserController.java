@@ -18,7 +18,7 @@ public class UserController extends BaseController<User, UserRepo> {
     UserServiceImpl userService;
 
     @PostMapping("/{id}")
-    public Result update(@PathVariable("id") Long id, @Valid @RequestBody User user, BindingResult bindingResult) {
+    public Result updateUser(@PathVariable("id") Long id, @Valid @RequestBody User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return Result.fail(bindingResult.getFieldError().getDefaultMessage());
         }
