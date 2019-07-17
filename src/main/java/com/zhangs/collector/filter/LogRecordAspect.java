@@ -3,7 +3,6 @@ package com.zhangs.collector.filter;
 import com.google.gson.Gson;
 import com.zhangs.collector.response.Result;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
@@ -26,7 +25,7 @@ public class LogRecordAspect {
     public void excudeService() {
     }
 
-    @Around("excudeService()")
+//    @Around("excudeService()")
     public Object doAround(ProceedingJoinPoint pjp) throws Throwable {
         RequestAttributes ra = RequestContextHolder.getRequestAttributes();
         ServletRequestAttributes sra = (ServletRequestAttributes) ra;

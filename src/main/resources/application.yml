@@ -10,6 +10,7 @@ spring:
     show-sql: true
   thymeleaf:
     cache: false
+    prefix: classpath:/templates/
   devtools:
     restart:
       enabled: true
