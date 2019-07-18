@@ -12,7 +12,7 @@ import java.io.IOException;
 public class HTTPBasicAuthorizeAttribute implements Filter{
 
     private static String Name = "admin";
-    private static String Password = "admin";
+    private static String Password=  "admin";
 
     @Override
     public void destroy() {
